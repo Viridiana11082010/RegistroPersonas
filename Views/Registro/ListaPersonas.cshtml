@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Registro.Models.Persona>;
+<div class="col-sm-8 offset-sm-2">
+    <h1>Registro de Personas</h1>
+    <br />
+    <form asp-controller="Registro" asp-action="ListaPersonas" method="get" class="row g-3">
+        <div class="col-10"></div>
+        <div class="col-auto">
+        </div>
+    </form>
+    <br />
+    <a asp-controller="Registro" asp-action="Nuevo" class="btn btn-primary mb-3">Nuevo</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="visibility:collapse; display:none;">IdPersona</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Correo</th>
+               
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="visibility:collapse; display:none;">@item.IdPersona</td>
+                    <td>@item.Nombre</td>
+                    <td>@item.Edad</td>
+                    <td>@item.Correo</td>
+                   
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
